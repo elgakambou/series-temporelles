@@ -17,5 +17,8 @@ public:
     cAbstractEpsilon theEpsilon;
     gsl_vector * estimParams;
 
+    double mSimulate(double t);
+    double mComputeGradient(double t);
+
 
 };

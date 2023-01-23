@@ -3,5 +3,6 @@
 class cAbstractMhu: public cAbstractProcess
 {
 public:
+    gsl_vector * theta; 
     
 };
