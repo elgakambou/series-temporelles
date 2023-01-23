@@ -12,13 +12,13 @@ public:
     cY(gsl_vector * theParameters);
     cY(gsl_vector * theObservations);
 
-    cAbstractMhu theMhu;
-    cAbstractSigma theSigma;
-    cAbstractEpsilon theEpsilon;
-    gsl_vector * estimParams;
+    cAbstractMhu* mhu;
+    cAbstractSigma *sigma;
+    cAbstractEpsilon* epsilon;
+    gsl_vector* estimParams;
 
+    cY(cY * other);
     double mSimulate(double t);
     double mComputeGradient(double t);
-
-
+    void mPrint();
 };
