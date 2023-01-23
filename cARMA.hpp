@@ -8,4 +8,6 @@ class cARMA : public cAbstractMhu {
         cAR* AR;
         cAM * AM;
         cARMA (int p, int q, cU * theprocessU, cY* theProcessY);
+        cARMA(cARMA* other);
+        print();
 };
