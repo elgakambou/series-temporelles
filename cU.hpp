@@ -8,4 +8,6 @@ class cU : public cAbstractProcess {
         cAbstractEpsilon* eps ;
         cAbstractSigma* sigma;
         cU(cAbstractEpsilon* theEps,  cAbstractSigma* theSigma);
+        cU(cU* other);
+        print();
 };
