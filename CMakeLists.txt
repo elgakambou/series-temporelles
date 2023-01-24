@@ -17,12 +17,13 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
 endif ()
 
-# ## localisation de la gsl
-set(CMAKE_PREFIX_PATH /home/elga/Documents/ENSIMAG/pnl/gsl-dir/gsl-dir/gsl-include/gsl ${CMAKE_PREFIX_PATH})
 
+# set(SOURCES MonteCarlo.cpp main.cpp BSCall.cpp Exo1.cpp)
+# set(HEADERS MonteCarlo.hpp BSCall.hpp Exo1.hpp)
 
-find_package(GSL REQUIRED) 
-target_link_libraries(Unitsv1 GSL::gsl GSL::gslcblas)
+add_executable(bruitBlanc src/testBruitBlanc.cpp)
+target_link_libraries(bruitBlanc)
+
 
 # # Detect PNL
 # find_package(Pnl REQUIRED)
@@ -33,8 +34,7 @@ target_link_libraries(Unitsv1 GSL::gsl GSL::gslcblas)
 # endif()
 
 # # Testing the parser
-# set(SOURCES MonteCarlo.cpp main.cpp BSCall.cpp Exo1.cpp)
-# set(HEADERS MonteCarlo.hpp BSCall.hpp Exo1.hpp)
+
 # add_executable(pricebscall ${SOURCES} ${HEADERS})
 # target_link_libraries(pricebscall ${LIBS})
 # pnl_add_postbuild(pricebscall)
