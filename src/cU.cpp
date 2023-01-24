@@ -1,5 +1,4 @@
 #include "cU.hpp"
-#include <iostream>
 
 cU::cU(cAbstractEpsilon* theEps,  cAbstractSigma* theSigma)
 {
@@ -13,9 +12,18 @@ cU::cU(cU* other)
 	sigma = other->sigma;
 }
 
-cU::mprint()
+double cU::mSimulate(double t)
+{// a completer
+	return 0;
+}
+
+double cU::mComputeGradient(double t)
+{// a completer
+		return 0;
+}
+void cU::mPrint()
 {
-	std::cout << "cU with: " << cst << std::endl;
-	eps->print();
-	sigma->print();
+	std::cout << "cU with: " << std::endl;
+	eps->mPrint();
+	sigma->mPrint();
 }

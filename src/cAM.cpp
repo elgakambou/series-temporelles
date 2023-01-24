@@ -14,7 +14,17 @@ cAM::cAM(cAM* other)
 	processU = new cU(other->processU);
 }
 
-void mPrint() 
+double cAM::mSimulate(double t)
+{// a completer
+	return 0;
+}
+
+double cAM::mComputeGradient(double t)
+{// a completer
+		return 0;
+}
+
+void cAM::mPrint() 
 {
     std::cout << "cAM  : \n";
     std::cout << "parameter q : " << q << "\n";

@@ -14,7 +14,7 @@ cARCH::cARCH(cARCH* other)
 	processY = new cY(other->processY);
 }
 
-void mPrint() 
+void cARCH::mPrint() 
 {
     std::cout << "cARCH  : \n";
     std::cout << "parameter p : " << p << "\n";

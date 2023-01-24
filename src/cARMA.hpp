@@ -1,6 +1,7 @@
 #include "cAbstractMhu.hpp"
 #include "cAR.hpp"
 #include "cAM.hpp"
+#include "entete.h"
 
 
 class cARMA : public cAbstractMhu {
@@ -9,5 +10,5 @@ class cARMA : public cAbstractMhu {
         cAM * AM;
         cARMA (int p, int q, cU * theprocessU, cY* theProcessY);
         cARMA(cARMA* other);
-        mprint();
+        void mPrint();
 };

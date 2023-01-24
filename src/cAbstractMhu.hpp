@@ -1,5 +1,5 @@
 #include "cAbstractProcess.hpp"
-#include "gsl-dir/gsl-dir/gsl-include/gsl.*"
+#include "entete.h"
 
 class cAbstractMhu: public cAbstractProcess
 {

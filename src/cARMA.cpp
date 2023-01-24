@@ -1,7 +1,6 @@
 #include "cARMA.hpp"
 #include "cAR.hpp"
 #include "cAM.hpp"
-#include <iostream>
 
 cARMA::cARMA(int p, int q, cU * theprocessU, cY* theProcessY)
 {
@@ -15,11 +14,11 @@ cARMA::cARMA(cARMA* other)
 	AM = new cAM(other->AM);
 }
 
-cARMA::mprint()
+void cARMA::mPrint()
 {
 	std::cout << "ARMA with: " << std::endl;
-	AR->print();
-	AM->print();
+	AR->mPrint();
+	AM->mPrint();
 }
 
 

@@ -1,4 +1,5 @@
 #include "cAbstractSigma.hpp"
+#include "entete.h"
 
 class cCsteSigma : public cAbstractSigma {
 	private:
@@ -10,5 +11,5 @@ class cCsteSigma : public cAbstractSigma {
         double mComputeGradient(double t) {
             return 0.0;
         };
-        mprint();
+        void mPrint();
 };

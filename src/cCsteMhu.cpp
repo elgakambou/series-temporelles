@@ -1,5 +1,4 @@
 #include "cCsteMhu.hpp"
-#include <iostream>
 
 cCsteMhu::cCsteMhu(double theCst)
 {
@@ -11,7 +10,7 @@ cCsteMhu::cCsteMhu(cCsteMhu* other)
 	cst = other->cst;
 }
 
-cCsteMhu::mprint()
+void cCsteMhu::mPrint()
 {
 	std::cout << "cCsteMhu with cst = " << cst << std::endl;
 }

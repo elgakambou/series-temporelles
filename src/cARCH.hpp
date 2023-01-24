@@ -1,5 +1,6 @@
 #include "cAbstractSigma.hpp"
 #include "cY.hpp"
+#include "entete.h"
 
 class cARCH : public cAbstractSigma
 {

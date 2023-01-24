@@ -1,4 +1,5 @@
 #include <iostream>
+#include "entete.h"
 
 class cAbstractProcess
 {

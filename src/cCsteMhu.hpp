@@ -1,4 +1,5 @@
 #include "cAbstractMhu.hpp"
+#include "entete.h"
 
 class cCsteMhu : public cAbstractMhu {
 	private:
@@ -10,5 +11,5 @@ class cCsteMhu : public cAbstractMhu {
         double mComputeGradient(double t) {
             return 0.0;
         };
-        mprint();
+        void mPrint();
 };

@@ -14,7 +14,17 @@ cAR::cAR(cAR* other)
 	processY = new cY(other->processY);
 }
 
-void mPrint() 
+double cAR::mSimulate(double t)
+{// a completer
+	return 0;
+}
+
+double cAR::mComputeGradient(double t)
+{// a completer
+		return 0;
+}
+
+void cAR::mPrint() 
 {
     std::cout << "cAR  : \n";
     std::cout << "parameter p : " << p << "\n";

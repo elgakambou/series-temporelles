@@ -1,4 +1,5 @@
 #include "cAbstractEpsilon.hpp"
+#include "entete.h"
 
 class cEpsilonStudent : public cAbstractEpsilon {
     public :

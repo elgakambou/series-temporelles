@@ -1,5 +1,4 @@
 #include "cCsteSigma.hpp"
-#include <iostream>
 
 cCsteSigma::cCsteSigma(double theCst)
 {
@@ -11,7 +10,7 @@ cCsteSigma::cCsteSigma(cCsteSigma* other)
 	cst = other->cst;
 }
 
-cCsteSigma::mprint()
+void cCsteSigma::mPrint()
 {
 	std::cout << "cCsteSigma with cst = " << cst << std::endl;
 }

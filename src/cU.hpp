@@ -1,6 +1,7 @@
 #include "cAbstractProcess.hpp"
 #include "cAbstractEpsilon.hpp"
 #include "cAbstractSigma.hpp"
+#include "entete.h"
 
 
 class cU : public cAbstractProcess {
@@ -9,5 +10,8 @@ class cU : public cAbstractProcess {
         cAbstractSigma* sigma;
         cU(cAbstractEpsilon* theEps,  cAbstractSigma* theSigma);
         cU(cU* other);
-        mprint();
+
+        double mSimulate(double t);
+        double mComputeGradient(double t);
+        void mPrint();
 };

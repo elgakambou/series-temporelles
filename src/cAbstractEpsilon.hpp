@@ -1,4 +1,5 @@
 #include "cAbstractProcess.hpp"
+#include "entete.h"
 
 class cAbstractEpsilon : public cAbstractProcess
 {
