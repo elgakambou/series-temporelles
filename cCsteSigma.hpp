@@ -10,5 +10,5 @@ class cCsteSigma : public cAbstractSigma {
         double mComputeGradient(double t) {
             return 0.0;
         };
-        print();
+        mprint();
 };

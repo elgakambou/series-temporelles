@@ -9,5 +9,5 @@ class cU : public cAbstractProcess {
         cAbstractSigma* sigma;
         cU(cAbstractEpsilon* theEps,  cAbstractSigma* theSigma);
         cU(cU* other);
-        print();
+        mprint();
 };

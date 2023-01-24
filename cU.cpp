@@ -13,7 +13,7 @@ cU::cU(cU* other)
 	sigma = other->sigma;
 }
 
-cU::print()
+cU::mprint()
 {
 	std::cout << "cU with: " << cst << std::endl;
 	eps->print();

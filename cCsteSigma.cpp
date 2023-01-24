@@ -11,7 +11,7 @@ cCsteSigma::cCsteSigma(cCsteSigma* other)
 	cst = other->cst;
 }
 
-cCsteSigma::print()
+cCsteSigma::mprint()
 {
 	std::cout << "cCsteSigma with cst = " << cst << std::endl;
 }

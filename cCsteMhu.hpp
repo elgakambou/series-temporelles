@@ -10,5 +10,5 @@ class cCsteMhu : public cAbstractMhu {
         double mComputeGradient(double t) {
             return 0.0;
         };
-        print();
+        mprint();
 };

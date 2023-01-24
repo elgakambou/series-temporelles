@@ -11,7 +11,7 @@ cCsteMhu::cCsteMhu(cCsteMhu* other)
 	cst = other->cst;
 }
 
-cCsteMhu::print()
+cCsteMhu::mprint()
 {
 	std::cout << "cCsteMhu with cst = " << cst << std::endl;
 }

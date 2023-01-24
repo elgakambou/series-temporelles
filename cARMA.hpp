@@ -9,5 +9,5 @@ class cARMA : public cAbstractMhu {
         cAM * AM;
         cARMA (int p, int q, cU * theprocessU, cY* theProcessY);
         cARMA(cARMA* other);
-        print();
+        mprint();
 };

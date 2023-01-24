@@ -15,7 +15,7 @@ cARMA::cARMA(cARMA* other)
 	AM = new cAM(other->AM);
 }
 
-cARMA::print()
+cARMA::mprint()
 {
 	std::cout << "ARMA with: " << std::endl;
 	AR->print();
