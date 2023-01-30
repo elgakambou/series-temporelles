@@ -14,7 +14,7 @@ cAM::cAM(cAM* other)
 	processU = new cU(other->processU);
 }
 
-double cAM::mSimulate(double t)
+double cAM::mSimulate(double t, gsl_rng* rng)
 {// a completer
 	return 0;
 }

@@ -14,7 +14,7 @@ cAR::cAR(cAR* other)
 	processY = new cY(other->processY);
 }
 
-double cAR::mSimulate(double t)
+double cAR::mSimulate(double t, gsl_rng* rng)
 {// a completer
 	return 0;
 }

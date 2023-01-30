@@ -1,3 +1,4 @@
+#pragma once
 #include "cAbstractMhu.hpp"
 #include "entete.h"
 
@@ -7,9 +8,7 @@ class cCsteMhu : public cAbstractMhu {
     public:
     	cCsteMhu(double theCst);
     	cCsteMhu(cCsteMhu* other);
-        double mSimulate(double t);
-        double mComputeGradient(double t) {
-            return 0.0;
-        };
+        double mSimulate(double t, gsl_rng* rng);
+        double mComputeGradient(double t);
         void mPrint();
 };

@@ -1,3 +1,4 @@
+#pragma once
 #include "cAbstractProcess.hpp"
 #include "entete.h"
 

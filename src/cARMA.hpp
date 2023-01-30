@@ -1,3 +1,4 @@
+#pragma once
 #include "cAbstractMhu.hpp"
 #include "cAR.hpp"
 #include "cAM.hpp"

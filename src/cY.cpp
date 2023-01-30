@@ -1,8 +1,15 @@
 #include "cY.hpp"
 
 
+cY::cY(cAbstractMhu* mhu, cAbstractSigma* sigma, cAbstractEpsilon* eps) {
+    this->epsilon = eps;
+    this->mhu = mhu;
+    this->sigma = sigma;
+}
 
-cY:: cY(gsl_vector * theParameters) {
+
+
+cY::cY(gsl_vector * beta, gsl_vector* theta){
     // a completer
 }
 cY:: cY(gsl_vector * theObservations) {

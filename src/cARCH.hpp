@@ -1,3 +1,4 @@
+#pragma once
 #include "cAbstractSigma.hpp"
 #include "cY.hpp"
 #include "entete.h"

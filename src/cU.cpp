@@ -12,7 +12,7 @@ cU::cU(cU* other)
 	sigma = other->sigma;
 }
 
-double cU::mSimulate(double t)
+double cU::mSimulate(double t, gsl_rng* rng)
 {// a completer
 	return 0;
 }

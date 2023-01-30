@@ -17,27 +17,16 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
 endif ()
 
-
+find_package(GSL REQUIRED) # imports GSL::gsl
 # set(SOURCES MonteCarlo.cpp main.cpp BSCall.cpp Exo1.cpp)
 # set(HEADERS MonteCarlo.hpp BSCall.hpp Exo1.hpp)
 
-add_executable(bruitBlanc src/testBruitBlanc.cpp)
+set(GSL_INC -I/usr/include)
+set(GSL_LIB -L/usr/lib/x86_64-linux-gnu -lgsl -lgslcblas -lm)
+
+
+add_executable(bruitBlanc ${GSL_INC} src/testBruitBlanc.cpp src/cEpsilonGaussian.hpp src/cEpsilonGaussian.cpp  ${GSL_LIB})
 target_link_libraries(bruitBlanc)
-
-
-# # Detect PNL
-# find_package(Pnl REQUIRED)
-# set(LIBS ${LIBS} ${PNL_LIBRARIES})
-# include_directories(${PNL_INCLUDE_DIRS})
-# if(${CMAKE_BUILD_TYPE} STREQUAL "Release")
-#     add_definitions(-DPNL_RANGE_CHECK_OFF)
-# endif()
-
-# # Testing the parser
-
-# add_executable(pricebscall ${SOURCES} ${HEADERS})
-# target_link_libraries(pricebscall ${LIBS})
-# pnl_add_postbuild(pricebscall)
 
 # Print compiler flags
 get_directory_property(DirDefs COMPILE_DEFINITIONS)
