@@ -8,7 +8,9 @@ class cCsteMhu : public cAbstractMhu {
     public:
     	cCsteMhu(double theCst);
     	cCsteMhu(cCsteMhu* other);
-        double mSimulate(double t, gsl_rng* rng);
-        double mComputeGradient(double t);
-        void mPrint();
+      double esperance(double t);
+      double mSimulate(double t, gsl_rng* rng);
+      double mComputeGradient(double t);
+      void mPrint();
+      double esperance(int t);
 };

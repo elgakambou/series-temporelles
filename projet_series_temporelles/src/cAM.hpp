@@ -13,4 +13,5 @@ public:
     void mPrint();
     double mSimulate(double t, gsl_rng* rng);
     double mComputeGradient(double t);
+    double esperance(int t);
 };

@@ -20,3 +20,8 @@ void cCsteMhu::mPrint()
 {
 	std::cout << "cCsteMhu with cst = " << cst << std::endl;
 }
+
+double cCsteMhu::esperance(int t)
+{
+    return cst;
+}

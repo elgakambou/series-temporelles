@@ -5,6 +5,7 @@
 class cAbstractMhu: public cAbstractProcess
 {
 public:
-    gsl_vector * theta; 
+    gsl_vector * theta;
 
+    virtual double esperance(int t) = 0;
 };

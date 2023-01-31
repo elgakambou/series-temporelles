@@ -31,3 +31,8 @@ void cAM::mPrint()
     std::cout << "parameter processU : " << "\n";
     processU->mPrint();
 }
+
+double cAM::esperance(int t)
+{
+    return 0;
+}
