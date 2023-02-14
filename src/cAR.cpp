@@ -2,21 +2,30 @@
 #include "cY.hpp"
 #include <iostream>
 
-cAR::cAR(int the_p, cY * theprocessY)
+cAR::cAR(gsl_vector * phi, cY * theprocessY) // elga
 {
-    p = the_p;
+    p = phi->size;
+    this->phi = phi;
     processY = theprocessY;
 }
 
 cAR::cAR(cAR* other)
 {
 	p = other->p;
-	processY = new cY(other->processY);
+    processY = new cY(other->processY);
+    // elga
+    phi = gsl_vector_alloc(p);
+    gsl_vector_memcpy(phi, other->phi);
 }
 
 double cAR::mSimulate(double t, gsl_rng* rng)
-{// a completer
-	return 0;
+{// ELGA
+
+    double s = 0.0;
+    for (int i = 1; i <= p; i++) {
+        s += gsl_vector_get(phi, i - 1) * processY->mSimulate( t- i, rng); // elga
+    }
+    return s;
 }
 
 double cAR::mComputeGradient(double t)
@@ -31,3 +40,7 @@ void cAR::mPrint()
     std::cout << "parameter processY : " << "\n";
     processY->mPrint();
 }
+
+cAR::~cAR() {
+    gsl_vector_free(phi);
+}; // elga

@@ -3,8 +3,4 @@
 #include "entete.h"
 
 class cAbstractSigma: public cAbstractProcess
-{
-public:
-    gsl_vector * theta;
-    
-};
+{};

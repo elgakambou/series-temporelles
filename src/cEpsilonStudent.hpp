@@ -3,10 +3,11 @@
 #include "entete.h"
 
 class cEpsilonStudent : public cAbstractEpsilon {
+    private : 
+        double k;
     public :
         cEpsilonStudent (double the_k);
         cEpsilonStudent (cEpsilonStudent * other); // constructeur par copie
-        double k;
         double mDensity (double t);
         double mLogDensity (double t);
         double mSimulate(double t, gsl_rng* rng);
@@ -15,5 +16,7 @@ class cEpsilonStudent : public cAbstractEpsilon {
             std::cout << "cEpsilonStudent  : \n";
             std::cout << "parameters k : " << k << "\n";
         }
+        ~cEpsilonStudent() {};
+
 
 };

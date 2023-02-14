@@ -7,9 +7,13 @@
 
 class cARMA : public cAbstractMhu {
     public:
-        cAR* AR;
-        cAM * AM;
-        cARMA (int p, int q, cU * theprocessU, cY* theProcessY);
+        cARMA(gsl_vector * phiAR, gsl_vector * phiAM, cY* theProcessY, cU * theprocessU);
         cARMA(cARMA* other);
+        double mSimulate(double t, gsl_rng* rng);
+        double mComputeGradient(double t);
         void mPrint();
+        ~cARMA (); // elga
+        private:
+            cAR* AR;
+            cAM * AM;
 };

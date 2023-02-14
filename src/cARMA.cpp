@@ -2,10 +2,10 @@
 #include "cAR.hpp"
 #include "cAM.hpp"
 
-cARMA::cARMA(int p, int q, cU * theprocessU, cY* theProcessY)
+cARMA::cARMA(gsl_vector * phiAR, gsl_vector * phiAM, cY* theProcessY, cU * theprocessU) // elga
 {
-    AR = new cAR(p, theProcessY);
-    AM = new cAM(q, theprocessU);
+    AR = new cAR(phiAR, theProcessY);
+    AM = new cAM(phiAM, theprocessU);
 }
 
 cARMA::cARMA(cARMA* other)
@@ -14,11 +14,29 @@ cARMA::cARMA(cARMA* other)
 	AM = new cAM(other->AM);
 }
 
+
+
+ double cARMA::mSimulate(double t, gsl_rng* rng) { // elga
+	return AR->mSimulate(t, rng) + AM->mSimulate(t, rng);
+ }
+
+
+double cARMA::mComputeGradient(double t) {
+	// a completer
+	return 0;
+}
+
+
 void cARMA::mPrint()
 {
 	std::cout << "ARMA with: " << std::endl;
 	AR->mPrint();
 	AM->mPrint();
+}
+
+cARMA::~cARMA () {
+	delete(AR);
+	delete(AM);
 }
 
 

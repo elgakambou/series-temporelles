@@ -13,8 +13,8 @@ cU::cU(cU* other)
 }
 
 double cU::mSimulate(double t, gsl_rng* rng)
-{// a completer
-	return 0;
+{
+	return eps->mSimulate(t, rng) * sigma->mSimulate(t, rng); // elga
 }
 
 double cU::mComputeGradient(double t)

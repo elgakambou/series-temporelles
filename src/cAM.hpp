@@ -6,11 +6,15 @@
 class cAM : public cAbstractMhu
 {
 public:
-    int q;
-    cU * processU;
-    cAM(int the_q, cU * theprocessU);
+    cAM(gsl_vector * phi, cU * theprocessU); // elga
     cAM::cAM(cAM* other);
     void mPrint();
     double mSimulate(double t, gsl_rng* rng);
     double mComputeGradient(double t);
+    ~cAM(); // elga
+    private : 
+        int q;
+        cU * processU;
+        gsl_vector * phi;
 };
+

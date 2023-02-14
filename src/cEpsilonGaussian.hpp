@@ -11,4 +11,5 @@ class cEpsilonGaussian : public cAbstractEpsilon {
         double mSimulate(double t, gsl_rng* rng);
         double mComputeGradient(double t);
         void mPrint();
+        ~cEpsilonGaussian() {};
 };

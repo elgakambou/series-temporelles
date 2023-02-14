@@ -15,4 +15,6 @@ class cU : public cAbstractProcess {
         double mSimulate(double t, gsl_rng* rng);
         double mComputeGradient(double t);
         void mPrint();
+        ~cU() {};
+
 };

@@ -7,12 +7,18 @@
 class cAR : public cAbstractMhu
 {
 public:
-    int p;
-    cY* processY;
-    cAR(int the_p, cY* theProcessY);
+    cAR(gsl_vector * phi, cY* theProcessY);
     cAR(cAR* other);
 
     double mSimulate(double t, gsl_rng* rng);
     double mComputeGradient(double t);
     void mPrint();
+    ~cAR(); // elga
+
+    private :
+        int p;
+        cY* processY;
+        gsl_vector* phi;
+
+
 };

@@ -12,14 +12,19 @@ void cEpsilonGaussian :: mPrint() {
     }
 
 
-double mDensity (double t) {
+double cEpsilonGaussian::mDensity (double t) {
     return gsl_ran_gaussian_pdf(t, 1);
 }
 
-double mLogDensity (double t) {
+double cEpsilonGaussian::mLogDensity (double t) {
     return log (mDensity(t));
 }
-double mSimulate(double t, gsl_rng* rng) {
+
+double cEpsilonGaussian::mSimulate(double t, gsl_rng* rng) {
     return gsl_ran_gaussian(rng, 1);
 }
-// double mComputeGradient(double t);
+
+double cEpsilonGaussian::mComputeGradient(double t) {
+    // a completer;
+    return 0;
+}
