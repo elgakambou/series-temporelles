@@ -2,15 +2,35 @@
 #include <cmath>
 
 
-cY::cY(cAbstractMhu* mhu, cAbstractSigma* sigma, cAbstractEpsilon* eps) {
+cY::cY( gsl_vector * beta, gsl_vector* theta, cAbstractMhu* mhu, cAbstractSigma* sigma, cAbstractEpsilon* eps) {
     this->epsilon = eps;
     this->mhu = mhu;
     this->sigma = sigma;
 
-    // int sizeToAlloc  = max(mhu->phi->size, sigma->theta->size); // elga
-    // lastValues = gsl_vector_alloc(sizeToAlloc);
-    // lastTimeComputed = 0;
+    this->beta = beta;
+    this->theta = theta;
+
+    int sizeToAlloc  = max(beta->size, theta->size); // elga
+    lastValues = gsl_vector_alloc(sizeToAlloc);
+    gsl_vector_set_all(lastValues, -1);
+    lastTimeComputed = 0.;
 }
+
+
+// cY::cY(gsl_vector * beta, gsl_vector* theta){
+//      this->beta = beta;
+//     this->theta = theta;
+    
+//     int sizeToAlloc  = max(beta->size, theta->size); // elga
+//     lastValues = gsl_vector_alloc(sizeToAlloc);
+//     lastTimeComputed = 0.;
+
+//     // a completer
+//     //  this->epsilon = eps;
+//     // this->mhu = mhu;
+//     // this->sigma = sigma;
+// }
+
 
 cY:: cY(gsl_vector * theObservations) {
     // a completer
@@ -22,10 +42,39 @@ cY:: cY(cY * other) {
     this->mhu = other->mhu;
 }
 
+// last values contiendra y(t- n + 1),...., y(t), soit n valeurs
+ void cY::getLastValue(int n, double t, gsl_vector* theLastValues) {
 
-// cY::cY(gsl_vector * beta, gsl_vector* theta){
-//     // a completer
+    int sizeOfLastValue = this->lastValues->size;
+    // si toutes les valeurs demandes ont ete deja calcules
+
+    if (  lastTimeComputed - sizeOfLastValue  <= t - n &&  t <= lastTimeComputed) {
+        int ind = (sizeOfLastValue - 1) - ( t - lastTimeComputed);
+        double value;
+        for (int i = 0; i < n ; i++) {
+            value = gsl_vector_get(lastValues, ind);
+            gsl_vector_set(theLastValues, i, value);
+            ind++;
+        }
+        
+    }
+    // //sinon si on a deja une partie des valeurs et il faut calcule un partie
+    // for (double time = lastTimeComputed; time <=t; time ++) {
+
+    // }
+    
+ 
+        
+}
+
+
+// // n'ajoute que si t = lastTimeComputed + 1
+// void cY::addToLastValues(double t, double val ) {
+//     if ( t == lastTimeComputed + 1 ) {
+
+//     }
 // }
+
 
 
 double cY::mSimulate(double t, gsl_rng* rng) {
@@ -34,7 +83,19 @@ double cY::mSimulate(double t, gsl_rng* rng) {
     if (t < 0) {
         return 0;
     }
-    return mhu->mSimulate(t, rng) + epsilon->mSimulate(t, rng) * sigma->mSimulate(t, rng);   
+    // check in last value 
+    int sizeOfLastValue = this->lastValues->size;
+    if (  lastTimeComputed - sizeOfLastValue + 1 <= t <= lastTimeComputed)
+    {
+        int ind = (sizeOfLastValue-1) - ( t - lastTimeComputed);
+        double value = gsl_vector_get(lastValues, ind );
+        return value;
+    }
+    // instant non vu 
+    else {
+        double value = mhu->mSimulate(t, rng) + epsilon->mSimulate(t, rng) * sigma->mSimulate(t, rng);   
+        return value;
+    }
 }
 
 
