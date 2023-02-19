@@ -12,10 +12,27 @@ cU::cU(cU* other)
 	sigma = other->sigma;
 }
 
-double cU::mSimulate(double t, gsl_rng* rng)
-{
-	return eps->mSimulate(t, rng) * sigma->mSimulate(t, rng); // elga
+// 
+double cU::mSimulate(double t, gsl_rng* rng) {
+    
+    // cas t < 0
+    if (t < 0) {
+        return 0.;
+    }   
+    else if ( t <= lastTimeComputed) {
+        return lastValues[t];
+    }
+    else {
+        double value;
+        for (int time = lastTimeComputed + 1; time <=t; time++) {
+        value = eps->mSimulate(time, rng) * sigma->mSimulate(time, rng); 
+        lastTimeComputed = time;
+        lastValues[time] = value;
+        }
+        return value;
+    }
 }
+
 
 double cU::mComputeGradient(double t)
 {// a completer

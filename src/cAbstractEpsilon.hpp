@@ -7,5 +7,6 @@ class cAbstractEpsilon : public cAbstractProcess
 public:
     virtual double mDensity (double t) = 0;
     virtual double mLogDensity (double t) = 0;
+    virtual double mDensityScaled(double t) = 0;
 
 };

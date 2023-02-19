@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "entete.h"
-
+#include <vector>
 
 
 // question : l'egalite fait elle la copie ?
@@ -15,9 +15,9 @@ public:
     virtual double mSimulate(double t,  gsl_rng* rng) = 0;
     virtual double mComputeGradient(double t) = 0;
     // elga
-    // gsl_vector* lastValues = nullptr; // elga ; vaut null par defaut
-    // double lastTimeComputed;
-    void getLastValue(int n, gsl_vector* lastValues) {
+    std::vector<double> lastValues; // elga 
+    double lastTimeComputed = -1;
+    virtual void getLastValue(double t, gsl_vector* theLastValues) {
         std::cout << " Not implemented yet !!" <<  std ::endl;
         exit(0);
     }
